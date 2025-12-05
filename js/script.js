@@ -250,23 +250,7 @@ function initContactForm() {
         // Réinitialiser le formulaire
         form.reset();
         
-        // Dans un vrai projet, vous utiliseriez EmailJS comme ceci:
-        /*
-        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
-            from_name: name,
-            from_email: email,
-            subject: subject,
-            message: message
-        }).then(
-            function(response) {
-                showNotification('Message envoyé avec succès!', 'success');
-                form.reset();
-            },
-            function(error) {
-                showNotification('Erreur lors de l\'envoi. Veuillez réessayer.', 'error');
-            }
-        );
-        */
+        
     });
 }
 
