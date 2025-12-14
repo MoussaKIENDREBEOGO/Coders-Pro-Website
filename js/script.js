@@ -2,6 +2,12 @@
 // CODEURS PRO - SCRIPT JAVASCRIPT PROFESSIONNEL
 // ============================================
 
+// === INITIALISATION EMAILJS ===
+// Remplacez 'YOUR_PUBLIC_KEY' par votre vrai Public Key depuis EmailJS
+(function() {
+    emailjs.init('YOUR_PUBLIC_KEY'); // ⚠️ REMPLACEZ PAR VOTRE CLE
+})();
+
 // === INITIALISATION ===
 document.addEventListener('DOMContentLoaded', function() {
     initAOS();
@@ -27,7 +33,7 @@ function initAOS() {
 function initTyped() {
     const typed = new Typed('#typed-text', {
         strings: [
-            'Codeurs Our Professional',
+            'Code\'s Our Professional',
             'Développement Web Moderne',
             'Applications Mobiles Performantes',
             'Solutions Digitales Innovantes',
@@ -218,9 +224,11 @@ function initParticles() {
     }
 }
 
-// === FORMULAIRE DE CONTACT ===
+// === FORMULAIRE DE CONTACT AVEC EMAILJS ===
 function initContactForm() {
     const form = document.getElementById('contactForm');
+    const submitBtn = form.querySelector('.btn-primary');
+    const originalBtnText = submitBtn.innerHTML;
     
     form.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -233,24 +241,54 @@ function initContactForm() {
         
         // Validation simple
         if (!name || !email || !subject || !message) {
-            showNotification('Veuillez remplir tous les champs', 'error');
+            const errorMsg = window.getTranslation ? window.getTranslation('notification_fill_fields') : 'Veuillez remplir tous les champs';
+            showNotification(errorMsg, 'error');
             return;
         }
         
         // Validation email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            showNotification('Veuillez entrer une adresse email valide', 'error');
+            const errorMsg = window.getTranslation ? window.getTranslation('notification_invalid_email') : 'Veuillez entrer une adresse email valide';
+            showNotification(errorMsg, 'error');
             return;
         }
         
-        // Simuler l'envoi (à remplacer par EmailJS ou autre service)
-        showNotification('Message envoyé avec succès! Nous vous contacterons bientôt.', 'success');
+        // Désactiver le bouton pendant l'envoi
+        submitBtn.disabled = true;
+        const sendingMsg = window.getTranslation ? window.getTranslation('notification_sending') : 'Envoi en cours...';
+        submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${sendingMsg}`;
         
-        // Réinitialiser le formulaire
-        form.reset();
+        // Paramètres pour EmailJS
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            subject: subject,
+            message: message,
+            to_email: 'kiendrebogo605@gmail.com'
+        };
         
-        
+        // Envoyer l'email via EmailJS
+        // ⚠️ REMPLACEZ 'YOUR_SERVICE_ID' et 'YOUR_TEMPLATE_ID' par vos vrais IDs
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                const successMsg = window.getTranslation ? window.getTranslation('notification_success') : 'Message envoyé avec succès! Nous vous contacterons bientôt.';
+                showNotification(successMsg, 'success');
+                form.reset();
+                
+                // Réactiver le bouton
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }, function(error) {
+                console.error('FAILED...', error);
+                const errorMsg = window.getTranslation ? window.getTranslation('notification_error') : 'Erreur lors de l\'envoi. Veuillez réessayer ou nous contacter directement.';
+                showNotification(errorMsg, 'error');
+                
+                // Réactiver le bouton
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            });
     });
 }
 

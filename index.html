@@ -22,12 +22,16 @@
                     <span>Codeurs Pro</span>
                 </div>
                 <div class="nav-links" id="navLinks">
-                    <a href="#accueil" class="nav-link active">Accueil</a>
-                    <a href="#apropos" class="nav-link">À Propos</a>
-                    <a href="#equipe" class="nav-link">Notre Équipe</a>
-                    <a href="#services" class="nav-link">Services</a>
-                    <a href="#projets" class="nav-link">Projets</a>
-                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#accueil" class="nav-link active" data-i18n="nav_home">Accueil</a>
+                    <a href="#apropos" class="nav-link" data-i18n="nav_about">À Propos</a>
+                    <a href="#equipe" class="nav-link" data-i18n="nav_team">Notre Équipe</a>
+                    <a href="#services" class="nav-link" data-i18n="nav_services">Services</a>
+                    <a href="#projets" class="nav-link" data-i18n="nav_projects">Projets</a>
+                    <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
+                    <button class="language-btn" id="languageBtn" title="Changer la langue">
+                        <i class="fas fa-globe"></i>
+                        <span id="currentLang">FR</span>
+                    </button>
                 </div>
                 <div class="hamburger" id="hamburger">
                     <span></span>
@@ -52,24 +56,24 @@
                 </p>
                 <div class="hero-buttons">
                     <a href="#services" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i> Nos Services
+                        <i class="fas fa-rocket"></i> <span data-i18n="hero_btn_services">Nos Services</span>
                     </a>
                     <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-envelope"></i> Nous Contacter
+                        <i class="fas fa-envelope"></i> <span data-i18n="hero_btn_contact">Nous Contacter</span>
                     </a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
                         <div class="stat-number" data-count="3">0</div>
-                        <div class="stat-label">Experts</div>
+                        <div class="stat-label" data-i18n="hero_stat_experts">Experts</div>
                     </div>
                     <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
                         <div class="stat-number" data-count="100">0</div>
-                        <div class="stat-label">% Engagement</div>
+                        <div class="stat-label" data-i18n="hero_stat_engagement">% Engagement</div>
                     </div>
                     <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
                         <div class="stat-number" data-count="24">0</div>
-                        <div class="stat-label">/ 7 Support</div>
+                        <div class="stat-label" data-i18n="hero_stat_support">/ 7 Support</div>
                     </div>
                 </div>
             </div>
@@ -83,9 +87,11 @@
     <section id="apropos" class="about">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-subtitle">Qui Sommes-Nous</span>
-                <h2 class="section-title">À Propos de <span class="gradient-text">Codeurs Pro</span></h2>
-                <p class="section-description">Une équipe consolidée avec une vision commune</p>
+                <span class="section-subtitle" data-i18n="about_subtitle">Qui Sommes-Nous</span>
+                <h2 class="section-title"><span data-i18n="about_title">À Propos de</span> <span class="gradient-text"
+                        data-i18n="about_title_highlight">Codeurs Pro</span></h2>
+                <p class="section-description" data-i18n="about_description">Une équipe consolidée avec une vision
+                    commune</p>
             </div>
             <div class="about-content">
                 <div class="about-text" data-aos="fade-right">
@@ -93,8 +99,9 @@
                         <div class="icon-box">
                             <i class="fas fa-lightbulb"></i>
                         </div>
-                        <h3>Notre Vision</h3>
-                        <p>Codeurs Pro est une équipe dynamique de 3 professionnels passionnés par la digitalisation.
+                        <h3 data-i18n="about_vision_title">Notre Vision</h3>
+                        <p data-i18n="about_vision_text">Codeurs Pro est une équipe dynamique de 3 professionnels
+                            passionnés par la digitalisation.
                             Nous croyons en la puissance de la technologie pour transformer les entreprises et améliorer
                             la vie des gens au Burkina Faso et au-delà.</p>
                     </div>
@@ -102,8 +109,9 @@
                         <div class="icon-box">
                             <i class="fas fa-target"></i>
                         </div>
-                        <h3>Notre Mission</h3>
-                        <p>Accompagner les entreprises dans leur transformation digitale en offrant des solutions
+                        <h3 data-i18n="about_mission_title">Notre Mission</h3>
+                        <p data-i18n="about_mission_text">Accompagner les entreprises dans leur transformation digitale
+                            en offrant des solutions
                             innovantes, performantes et adaptées à leurs besoins spécifiques. Nous mettons notre
                             expertise au service de votre réussite.</p>
                     </div>
@@ -112,15 +120,15 @@
                     <div class="image-wrapper">
                         <div class="floating-card">
                             <i class="fas fa-code"></i>
-                            <h4>Code Propre</h4>
+                            <h4 data-i18n="about_clean_code">Code Propre</h4>
                         </div>
                         <div class="floating-card">
                             <i class="fas fa-mobile-alt"></i>
-                            <h4>Responsive</h4>
+                            <h4 data-i18n="about_responsive">Responsive</h4>
                         </div>
                         <div class="floating-card">
                             <i class="fas fa-rocket"></i>
-                            <h4>Performance</h4>
+                            <h4 data-i18n="about_performance">Performance</h4>
                         </div>
                     </div>
                 </div>
@@ -132,9 +140,11 @@
     <section id="equipe" class="team">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-subtitle">Les Experts</span>
-                <h2 class="section-title">Notre <span class="gradient-text">Équipe</span></h2>
-                <p class="section-description">Rencontrez les talents derrière Codeurs Pro</p>
+                <span class="section-subtitle" data-i18n="team_subtitle">Les Experts</span>
+                <h2 class="section-title"><span data-i18n="team_title">Notre</span> <span class="gradient-text"
+                        data-i18n="team_title_highlight">Équipe</span></h2>
+                <p class="section-description" data-i18n="team_description">Rencontrez les talents derrière Codeurs Pro
+                </p>
             </div>
             <div class="team-grid">
                 <div class="team-card" data-aos="fade-up" data-aos-delay="100">
@@ -153,14 +163,15 @@
                     </div>
                     <div class="team-info">
                         <h3>Moussa KIENDREBEOGO</h3>
-                        <p class="team-role">Co-Fondateur & Développeur</p>
-                        <p class="team-description">Expert en développement web et applications</p>
+                        <p class="team-role" data-i18n="team_cofounder">Co-Fondateur & Développeur</p>
+                        <p class="team-description" data-i18n="team_moussa_desc">Expert en développement web et
+                            applications</p>
                     </div>
                 </div>
 
                 <div class="team-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="team-image">
-                        <img src="images/Ben.png" alt="Abdoul Ben Fatao SANON">
+                        <img id="Ben" src="images/Ben.png" alt="Abdoul Ben Fatao SANON">
                         <div class="team-overlay">
                             <div class="team-social">
                                 <a href="https://www.linkedin.com/in/sabf-sanon" target="_blank" title="LinkedIn"><i
@@ -173,8 +184,8 @@
                     </div>
                     <div class="team-info">
                         <h3>Abdoul Ben Fatao SANON</h3>
-                        <p class="team-role">Co-Fondateur & Développeur</p>
-                        <p class="team-description">Spécialiste en solutions digitales</p>
+                        <p class="team-role" data-i18n="team_cofounder">Co-Fondateur & Développeur</p>
+                        <p class="team-description" data-i18n="team_ben_desc">Spécialiste en solutions digitales</p>
                     </div>
                 </div>
 
@@ -194,8 +205,8 @@
                     </div>
                     <div class="team-info">
                         <h3>Marc NANA</h3>
-                        <p class="team-role">Co-Fondateur & Développeur</p>
-                        <p class="team-description">Expert en architecture logicielle</p>
+                        <p class="team-role" data-i18n="team_cofounder">Co-Fondateur & Développeur</p>
+                        <p class="team-description" data-i18n="team_marc_desc">Expert en architecture logicielle</p>
                     </div>
                 </div>
             </div>
@@ -206,22 +217,27 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-subtitle">Ce Que Nous Faisons</span>
-                <h2 class="section-title">Nos <span class="gradient-text">Services</span></h2>
-                <p class="section-description">Des solutions digitales complètes pour votre entreprise</p>
+                <span class="section-subtitle" data-i18n="services_subtitle">Ce Que Nous Faisons</span>
+                <h2 class="section-title"><span data-i18n="services_title">Nos</span> <span class="gradient-text"
+                        data-i18n="services_title_highlight">Services</span></h2>
+                <p class="section-description" data-i18n="services_description">Des solutions digitales complètes pour
+                    votre entreprise</p>
             </div>
             <div class="services-grid">
                 <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-icon">
                         <i class="fas fa-laptop-code"></i>
                     </div>
-                    <h3>Développement Web</h3>
-                    <p>Création de sites web modernes, responsive et performants adaptés à vos besoins. De la vitrine au
+                    <h3 data-i18n="service_web_title">Développement Web</h3>
+                    <p data-i18n="service_web_desc">Création de sites web modernes, responsive et performants adaptés à
+                        vos besoins. De la vitrine au
                         e-commerce.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Sites vitrines</li>
-                        <li><i class="fas fa-check"></i> Applications web</li>
-                        <li><i class="fas fa-check"></i> E-commerce</li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service_web_feature1">Sites vitrines</span>
+                        </li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service_web_feature2">Applications web</span>
+                        </li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service_web_feature3">E-commerce</span></li>
                     </ul>
                 </div>
 
@@ -229,13 +245,17 @@
                     <div class="service-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Applications Mobiles</h3>
-                    <p>Développement d'applications mobiles natives et cross-platform pour iOS et Android avec une
+                    <h3 data-i18n="service_mobile_title">Applications Mobiles</h3>
+                    <p data-i18n="service_mobile_desc">Développement d'applications mobiles natives et cross-platform
+                        pour iOS et Android avec une
                         expérience utilisateur optimale.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> iOS & Android</li>
-                        <li><i class="fas fa-check"></i> Design moderne</li>
-                        <li><i class="fas fa-check"></i> Performance optimale</li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service_mobile_feature1">iOS & Android</span>
+                        </li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service_mobile_feature2">Design moderne</span>
+                        </li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service_mobile_feature3">Performance
+                                optimale</span></li>
                     </ul>
                 </div>
 
@@ -243,13 +263,17 @@
                     <div class="service-icon">
                         <i class="fas fa-paint-brush"></i>
                     </div>
-                    <h3>UI/UX Design</h3>
-                    <p>Conception d'interfaces utilisateur attrayantes et intuitives pour améliorer l'expérience de vos
+                    <h3 data-i18n="service_design_title">UI/UX Design</h3>
+                    <p data-i18n="service_design_desc">Conception d'interfaces utilisateur attrayantes et intuitives
+                        pour améliorer l'expérience de vos
                         clients.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Design moderne</li>
-                        <li><i class="fas fa-check"></i> Prototypage</li>
-                        <li><i class="fas fa-check"></i> Tests utilisateurs</li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service_design_feature1">Design moderne</span>
+                        </li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service_design_feature2">Prototypage</span>
+                        </li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service_design_feature3">Tests
+                                utilisateurs</span></li>
                     </ul>
                 </div>
 
@@ -257,13 +281,16 @@
                     <div class="service-icon">
                         <i class="fas fa-database"></i>
                     </div>
-                    <h3>Solutions Backend</h3>
-                    <p>Développement de systèmes backend robustes, APIs RESTful et gestion de bases de données
+                    <h3 data-i18n="service_backend_title">Solutions Backend</h3>
+                    <p data-i18n="service_backend_desc">Développement de systèmes backend robustes, APIs RESTful et
+                        gestion de bases de données
                         sécurisées.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> APIs RESTful</li>
-                        <li><i class="fas fa-check"></i> Bases de données</li>
-                        <li><i class="fas fa-check"></i> Sécurité</li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service_backend_feature1">APIs RESTful</span>
+                        </li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service_backend_feature2">Bases de
+                                données</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service_backend_feature3">Sécurité</span></li>
                     </ul>
                 </div>
 
@@ -271,13 +298,17 @@
                     <div class="service-icon">
                         <i class="fas fa-cloud"></i>
                     </div>
-                    <h3>Cloud & Hébergement</h3>
-                    <p>Déploiement et hébergement de vos applications sur des infrastructures cloud sécurisées et
+                    <h3 data-i18n="service_cloud_title">Cloud & Hébergement</h3>
+                    <p data-i18n="service_cloud_desc">Déploiement et hébergement de vos applications sur des
+                        infrastructures cloud sécurisées et
                         performantes.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Hébergement web</li>
-                        <li><i class="fas fa-check"></i> Solutions cloud</li>
-                        <li><i class="fas fa-check"></i> Maintenance</li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service_cloud_feature1">Hébergement web</span>
+                        </li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service_cloud_feature2">Solutions cloud</span>
+                        </li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service_cloud_feature3">Maintenance</span>
+                        </li>
                     </ul>
                 </div>
 
@@ -285,13 +316,17 @@
                     <div class="service-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Conseil Digital</h3>
-                    <p>Accompagnement stratégique pour votre transformation digitale et optimisation de votre présence
+                    <h3 data-i18n="service_conseil_title">Conseil Digital</h3>
+                    <p data-i18n="service_conseil_desc">Accompagnement stratégique pour votre transformation digitale et
+                        optimisation de votre présence
                         en ligne.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Stratégie digitale</li>
-                        <li><i class="fas fa-check"></i> Audit technique</li>
-                        <li><i class="fas fa-check"></i> Formation</li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service_conseil_feature1">Stratégie
+                                digitale</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service_conseil_feature2">Audit
+                                technique</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service_conseil_feature3">Formation</span>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -302,9 +337,11 @@
     <section id="projets" class="projects">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-subtitle">Nos Réalisations</span>
-                <h2 class="section-title">Portfolio & <span class="gradient-text">Projets</span></h2>
-                <p class="section-description">Découvrez quelques-unes de nos réalisations</p>
+                <span class="section-subtitle" data-i18n="projects_subtitle">Nos Réalisations</span>
+                <h2 class="section-title"><span data-i18n="projects_title">Portfolio &</span> <span
+                        class="gradient-text" data-i18n="projects_title_highlight">Projets</span></h2>
+                <p class="section-description" data-i18n="projects_description">Découvrez quelques-unes de nos
+                    réalisations</p>
             </div>
             <div class="projects-grid">
                 <div class="project-card" data-aos="fade-up" data-aos-delay="100">
@@ -313,8 +350,8 @@
                             <i class="fas fa-image"></i>
                         </div>
                         <div class="project-overlay">
-                            <h3>Projet à venir</h3>
-                            <p>Nous travaillons sur des projets innovants</p>
+                            <h3 data-i18n="project_coming">Projet à venir</h3>
+                            <p data-i18n="project_desc1">Nous travaillons sur des projets innovants</p>
                             <a href="#" class="project-link"><i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
@@ -325,8 +362,8 @@
                             <i class="fas fa-image"></i>
                         </div>
                         <div class="project-overlay">
-                            <h3>Projet à venir</h3>
-                            <p>Restez connectés pour nos prochaines réalisations</p>
+                            <h3 data-i18n="project_coming">Projet à venir</h3>
+                            <p data-i18n="project_desc2">Restez connectés pour nos prochaines réalisations</p>
                             <a href="#" class="project-link"><i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
@@ -337,8 +374,8 @@
                             <i class="fas fa-image"></i>
                         </div>
                         <div class="project-overlay">
-                            <h3>Projet à venir</h3>
-                            <p>De grandes choses arrivent bientôt</p>
+                            <h3 data-i18n="project_coming">Projet à venir</h3>
+                            <p data-i18n="project_desc3">De grandes choses arrivent bientôt</p>
                             <a href="#" class="project-link"><i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
@@ -351,9 +388,11 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-subtitle">Parlons de Votre Projet</span>
-                <h2 class="section-title">Contactez <span class="gradient-text">-Nous</span></h2>
-                <p class="section-description">Nous sommes là pour répondre à toutes vos questions</p>
+                <span class="section-subtitle" data-i18n="contact_subtitle">Parlons de Votre Projet</span>
+                <h2 class="section-title"><span data-i18n="contact_title">Contactez</span><span class="gradient-text"
+                        data-i18n="contact_title_highlight"> -Nous</span></h2>
+                <p class="section-description" data-i18n="contact_description">Nous sommes là pour répondre à toutes vos
+                    questions</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info" data-aos="fade-right">
@@ -361,14 +400,14 @@
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
-                        <h3>Email</h3>
+                        <h3 data-i18n="contact_email_title">Email</h3>
                         <p>kiendrebogo605@gmail.com</p>
                     </div>
                     <div class="contact-card">
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <h3>Téléphone</h3>
+                        <h3 data-i18n="contact_phone_title">Téléphone</h3>
                         <p>+226 55 85 19 35</p>
                         <p>+226 61 35 78 33</p>
                         <p>+226 06 26 25 45</p>
@@ -377,8 +416,8 @@
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <h3>Adresse</h3>
-                        <p>Ouagadougou, Burkina Faso</p>
+                        <h3 data-i18n="contact_address_title">Adresse</h3>
+                        <p data-i18n="contact_address_text">Koudougou, Burkina Faso</p>
                     </div>
                     <div class="social-links">
                         <a href="https://www.facebook.com/profile.php?id=61578310646323&locale=fr_FR" target="_blank"
@@ -412,7 +451,7 @@
                         <i class="fas fa-comment"></i>
                     </div>
                     <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> Envoyer le Message
+                        <i class="fas fa-paper-plane"></i> <span data-i18n="contact_form_btn">Envoyer le Message</span>
                     </button>
                 </form>
             </div>
@@ -426,25 +465,25 @@
                 <div class="footer-brand">
                     <img src="images/logo.png" alt="Codeurs Pro Logo">
                     <h3>Codeurs Pro</h3>
-                    <p>Votre partenaire de confiance pour la digitalisation</p>
+                    <p data-i18n="footer_description">Votre partenaire de confiance pour la digitalisation</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Liens Rapides</h4>
-                    <a href="#accueil">Accueil</a>
-                    <a href="#apropos">À Propos</a>
-                    <a href="#equipe">Équipe</a>
-                    <a href="#services">Services</a>
+                    <h4 data-i18n="footer_quick_links">Liens Rapides</h4>
+                    <a href="#accueil" data-i18n="nav_home">Accueil</a>
+                    <a href="#apropos" data-i18n="nav_about">À Propos</a>
+                    <a href="#equipe" data-i18n="nav_team">Équipe</a>
+                    <a href="#services" data-i18n="nav_services">Services</a>
                 </div>
                 <div class="footer-links">
-                    <h4>Services</h4>
-                    <a href="#services">Développement Web</a>
-                    <a href="#services">Applications Mobiles</a>
-                    <a href="#services">UI/UX Design</a>
-                    <a href="#services">Conseil Digital</a>
+                    <h4 data-i18n="footer_services_title">Services</h4>
+                    <a href="#services" data-i18n="service_web_title">Développement Web</a>
+                    <a href="#services" data-i18n="service_mobile_title">Applications Mobiles</a>
+                    <a href="#services" data-i18n="service_design_title">UI/UX Design</a>
+                    <a href="#services" data-i18n="service_conseil_title">Conseil Digital</a>
                 </div>
                 <div class="footer-newsletter">
-                    <h4>Restez Connecté</h4>
-                    <p>Suivez-nous sur nos réseaux sociaux</p>
+                    <h4 data-i18n="footer_stay_connected">Restez Connecté</h4>
+                    <p data-i18n="footer_social_text">Suivez-nous sur nos réseaux sociaux</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/profile.php?id=61578310646323&locale=fr_FR" target="_blank"
                             title="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -455,8 +494,9 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Codeurs Pro. Tous droits réservés.</p>
-                <p>Fait avec <i class="fas fa-heart"></i> à Ouagadougou, Burkina Faso</p>
+                <p>&copy; 2024 Codeurs Pro. <span data-i18n="footer_copyright">Tous droits réservés.</span></p>
+                <p><span data-i18n="footer_made_with">Fait avec</span> <i class="fas fa-heart"></i> <span
+                        data-i18n="footer_location">à Koudougou, Burkina Faso</span></p>
             </div>
         </div>
     </footer>
@@ -469,6 +509,8 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/translations.js"></script>
     <script src="js/script.js"></script>
 </body>
 
