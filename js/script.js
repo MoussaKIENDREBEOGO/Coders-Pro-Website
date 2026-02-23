@@ -5,7 +5,7 @@
 // === INITIALISATION EMAILJS ===
 // Remplacez 'YOUR_PUBLIC_KEY' par votre vrai Public Key depuis EmailJS
 (function () {
-    emailjs.init('YOUR_PUBLIC_KEY'); // ⚠️ REMPLACEZ PAR VOTRE CLE
+    emailjs.init('vQx0lL8HPz03_UHOC'); // ⚠️ REMPLACEZ PAR VOTRE CLE
 })();
 
 // === INITIALISATION ===
@@ -269,8 +269,7 @@ function initContactForm() {
         };
 
         // Envoyer l'email via EmailJS
-        // ⚠️ REMPLACEZ 'YOUR_SERVICE_ID' et 'YOUR_TEMPLATE_ID' par vos vrais IDs
-        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        emailjs.send('service_cy7j3m1', 'template_paahsfl', templateParams)
             .then(function (response) {
                 console.log('SUCCESS!', response.status, response.text);
                 const successMsg = window.getTranslation ? window.getTranslation('notification_success') : 'Message envoyé avec succès! Nous vous contacterons bientôt.';
