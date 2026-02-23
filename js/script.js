@@ -11,7 +11,7 @@
 // === INITIALISATION ===
 document.addEventListener('DOMContentLoaded', function () {
     initAOS();
-    initTyped();
+    // initTyped(); // Retiré car géré par translations.js
     initNavigation();
     initScrollEffects();
     initCounters();
@@ -26,25 +26,6 @@ function initAOS() {
         easing: 'ease-in-out',
         once: true,
         offset: 100
-    });
-}
-
-// === EFFET TEXTE DACTYLOGRAPHIÉ ===
-function initTyped() {
-    const typed = new Typed('#typed-text', {
-        strings: [
-            'Code\'s Our Professional',
-            'Développement Web Moderne',
-            'Applications Mobiles Performantes',
-            'Solutions Digitales Innovantes',
-            'Votre Partenaire Digital au Burkina Faso'
-        ],
-        typeSpeed: 50,
-        backSpeed: 30,
-        backDelay: 2000,
-        loop: true,
-        showCursor: true,
-        cursorChar: '|'
     });
 }
 

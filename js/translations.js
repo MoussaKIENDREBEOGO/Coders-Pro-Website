@@ -302,6 +302,9 @@ function updateFormPlaceholders() {
     if (messageInput) messageInput.placeholder = translations[currentLanguage].contact_form_message;
 }
 
+// Instance globale pour Typed.js
+let typedInstance = null;
+
 // Fonction pour mettre à jour le texte Typed.js
 function updateTypedText() {
     const typedStrings = currentLanguage === 'fr'
@@ -320,20 +323,24 @@ function updateTypedText() {
             'Your Digital Partner in Burkina Faso'
         ];
 
-    // Recréer l'instance Typed avec les nouvelles chaînes
-    if (window.typedInstance) {
-        window.typedInstance.destroy();
+    // Détruire l'ancienne instance si elle existe
+    if (typedInstance) {
+        typedInstance.destroy();
     }
 
-    window.typedInstance = new Typed('#typed-text', {
-        strings: typedStrings,
-        typeSpeed: 50,
-        backSpeed: 30,
-        backDelay: 2000,
-        loop: true,
-        showCursor: true,
-        cursorChar: '|'
-    });
+    // Vérifier si l'élément existe avant d'initialiser
+    const element = document.querySelector('#typed-text');
+    if (element) {
+        typedInstance = new Typed('#typed-text', {
+            strings: typedStrings,
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 2000,
+            loop: true,
+            showCursor: true,
+            cursorChar: '|'
+        });
+    }
 }
 
 // Fonction pour mettre à jour le bouton de langue
@@ -352,7 +359,7 @@ document.addEventListener('DOMContentLoaded', function () {
         currentLanguage = savedLang;
     }
 
-    // Mettre à jour le contenu
+    // Mettre à jour le contenu initial
     updateContent();
     updateLanguageButton();
 
@@ -360,6 +367,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const languageBtn = document.getElementById('languageBtn');
     if (languageBtn) {
         languageBtn.addEventListener('click', function () {
+            // Effet visuel immédiat
+            this.classList.add('switching');
+            setTimeout(() => this.classList.remove('switching'), 600);
+
             const newLang = currentLanguage === 'fr' ? 'en' : 'fr';
             changeLanguage(newLang);
         });
