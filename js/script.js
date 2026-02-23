@@ -48,6 +48,7 @@ function initNavigation() {
     // Menu hamburger
     hamburger.addEventListener('click', function () {
         navLinks.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
 
         // Animation du hamburger
         const spans = hamburger.querySelectorAll('span');
@@ -67,6 +68,7 @@ function initNavigation() {
 
             // Fermer le menu mobile
             navLinks.classList.remove('active');
+            document.body.style.overflow = 'auto';
 
             // Réinitialiser le hamburger
             const spans = hamburger.querySelectorAll('span');
@@ -92,7 +94,7 @@ function initNavigation() {
         });
     });
 
-    // Mettre à jour le lien actif au scroll
+    // Mettre à jour le lien actif au scrollss
     window.addEventListener('scroll', function () {
         let current = '';
         const sections = document.querySelectorAll('section');

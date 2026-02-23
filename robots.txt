@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://coders-pro-website.netlify.app/sitemap.xml
