@@ -4,12 +4,12 @@
 
 // === INITIALISATION EMAILJS ===
 // Remplacez 'YOUR_PUBLIC_KEY' par votre vrai Public Key depuis EmailJS
-(function() {
+(function () {
     emailjs.init('YOUR_PUBLIC_KEY'); // ⚠️ REMPLACEZ PAR VOTRE CLE
 })();
 
 // === INITIALISATION ===
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     initAOS();
     initTyped();
     initNavigation();
@@ -56,7 +56,7 @@ function initNavigation() {
     const links = document.querySelectorAll('.nav-link');
 
     // Effet de scroll sur la navbar
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
@@ -65,38 +65,38 @@ function initNavigation() {
     });
 
     // Menu hamburger
-    hamburger.addEventListener('click', function() {
+    hamburger.addEventListener('click', function () {
         navLinks.classList.toggle('active');
-        
+
         // Animation du hamburger
         const spans = hamburger.querySelectorAll('span');
-        spans[0].style.transform = navLinks.classList.contains('active') 
-            ? 'rotate(45deg) translateY(8px)' 
+        spans[0].style.transform = navLinks.classList.contains('active')
+            ? 'rotate(45deg) translateY(8px)'
             : 'rotate(0) translateY(0)';
         spans[1].style.opacity = navLinks.classList.contains('active') ? '0' : '1';
-        spans[2].style.transform = navLinks.classList.contains('active') 
-            ? 'rotate(-45deg) translateY(-8px)' 
+        spans[2].style.transform = navLinks.classList.contains('active')
+            ? 'rotate(-45deg) translateY(-8px)'
             : 'rotate(0) translateY(0)';
     });
 
     // Navigation smooth scroll
     links.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             // Fermer le menu mobile
             navLinks.classList.remove('active');
-            
+
             // Réinitialiser le hamburger
             const spans = hamburger.querySelectorAll('span');
             spans[0].style.transform = 'rotate(0) translateY(0)';
             spans[1].style.opacity = '1';
             spans[2].style.transform = 'rotate(0) translateY(0)';
-            
+
             // Scroll vers la section
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
-            
+
             if (targetSection) {
                 const offsetTop = targetSection.offsetTop - 80;
                 window.scrollTo({
@@ -104,7 +104,7 @@ function initNavigation() {
                     behavior: 'smooth'
                 });
             }
-            
+
             // Mettre à jour le lien actif
             links.forEach(l => l.classList.remove('active'));
             this.classList.add('active');
@@ -112,10 +112,10 @@ function initNavigation() {
     });
 
     // Mettre à jour le lien actif au scroll
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         let current = '';
         const sections = document.querySelectorAll('section');
-        
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
@@ -137,16 +137,16 @@ function initNavigation() {
 function initScrollEffects() {
     // Bouton retour en haut
     const backToTop = document.getElementById('backToTop');
-    
-    window.addEventListener('scroll', function() {
+
+    window.addEventListener('scroll', function () {
         if (window.scrollY > 300) {
             backToTop.classList.add('show');
         } else {
             backToTop.classList.remove('show');
         }
     });
-    
-    backToTop.addEventListener('click', function() {
+
+    backToTop.addEventListener('click', function () {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
@@ -219,7 +219,7 @@ function initParticles() {
         particle.style.top = Math.random() * 100 + '%';
         particle.style.animation = `float ${Math.random() * 10 + 5}s ease-in-out infinite`;
         particle.style.animationDelay = Math.random() * 5 + 's';
-        
+
         particlesContainer.appendChild(particle);
     }
 }
@@ -229,23 +229,23 @@ function initContactForm() {
     const form = document.getElementById('contactForm');
     const submitBtn = form.querySelector('.btn-primary');
     const originalBtnText = submitBtn.innerHTML;
-    
-    form.addEventListener('submit', function(e) {
+
+    form.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         // Récupérer les valeurs
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const subject = document.getElementById('subject').value;
         const message = document.getElementById('message').value;
-        
+
         // Validation simple
         if (!name || !email || !subject || !message) {
             const errorMsg = window.getTranslation ? window.getTranslation('notification_fill_fields') : 'Veuillez remplir tous les champs';
             showNotification(errorMsg, 'error');
             return;
         }
-        
+
         // Validation email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
@@ -253,38 +253,38 @@ function initContactForm() {
             showNotification(errorMsg, 'error');
             return;
         }
-        
+
         // Désactiver le bouton pendant l'envoi
         submitBtn.disabled = true;
         const sendingMsg = window.getTranslation ? window.getTranslation('notification_sending') : 'Envoi en cours...';
         submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${sendingMsg}`;
-        
+
         // Paramètres pour EmailJS
         const templateParams = {
             from_name: name,
             from_email: email,
             subject: subject,
             message: message,
-            to_email: 'kiendrebogo605@gmail.com'
+            to_email: 'codeurspro@gmail.com'
         };
-        
+
         // Envoyer l'email via EmailJS
         // ⚠️ REMPLACEZ 'YOUR_SERVICE_ID' et 'YOUR_TEMPLATE_ID' par vos vrais IDs
         emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-            .then(function(response) {
+            .then(function (response) {
                 console.log('SUCCESS!', response.status, response.text);
                 const successMsg = window.getTranslation ? window.getTranslation('notification_success') : 'Message envoyé avec succès! Nous vous contacterons bientôt.';
                 showNotification(successMsg, 'success');
                 form.reset();
-                
+
                 // Réactiver le bouton
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalBtnText;
-            }, function(error) {
+            }, function (error) {
                 console.error('FAILED...', error);
                 const errorMsg = window.getTranslation ? window.getTranslation('notification_error') : 'Erreur lors de l\'envoi. Veuillez réessayer ou nous contacter directement.';
                 showNotification(errorMsg, 'error');
-                
+
                 // Réactiver le bouton
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalBtnText;
@@ -301,7 +301,7 @@ function showNotification(message, type) {
         <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
         <span>${message}</span>
     `;
-    
+
     // Ajouter les styles inline
     notification.style.cssText = `
         position: fixed;
@@ -319,9 +319,9 @@ function showNotification(message, type) {
         animation: slideIn 0.3s ease;
         font-size: 1rem;
     `;
-    
+
     document.body.appendChild(notification);
-    
+
     // Retirer après 5 secondes
     setTimeout(() => {
         notification.style.animation = 'slideOut 0.3s ease';
@@ -359,16 +359,16 @@ style.textContent = `
 document.head.appendChild(style);
 
 // === EFFET PARALLAX SUR LE HERO ===
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const scrolled = window.scrollY;
     const heroContent = document.querySelector('.hero-content');
     const particles = document.getElementById('particles');
-    
+
     if (heroContent) {
         heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
         heroContent.style.opacity = 1 - scrolled / 700;
     }
-    
+
     if (particles) {
         particles.style.transform = `translateY(${scrolled * 0.3}px)`;
     }
@@ -376,11 +376,11 @@ window.addEventListener('scroll', function() {
 
 // === ANIMATION DES CARTES AU SURVOL ===
 document.querySelectorAll('.service-card, .team-card, .project-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
+    card.addEventListener('mouseenter', function () {
         this.style.transform = 'translateY(-10px) scale(1.02)';
     });
-    
-    card.addEventListener('mouseleave', function() {
+
+    card.addEventListener('mouseleave', function () {
         this.style.transform = 'translateY(0) scale(1)';
     });
 });
@@ -388,7 +388,7 @@ document.querySelectorAll('.service-card, .team-card, .project-card').forEach(ca
 // === LAZY LOADING DES IMAGES (pour optimisation future) ===
 function lazyLoadImages() {
     const images = document.querySelectorAll('img[data-src]');
-    
+
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -399,7 +399,7 @@ function lazyLoadImages() {
             }
         });
     });
-    
+
     images.forEach(img => imageObserver.observe(img));
 }
 
@@ -420,7 +420,7 @@ function debounce(func, wait) {
 }
 
 // Appliquer le debounce aux événements de scroll intensifs
-window.addEventListener('scroll', debounce(function() {
+window.addEventListener('scroll', debounce(function () {
     // Code optimisé pour le scroll
 }, 10));
 

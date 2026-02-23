@@ -26,7 +26,7 @@ const translations = {
         about_title_highlight: "Codeurs Pro",
         about_description: "Une équipe consolidée avec une vision commune",
         about_vision_title: "Notre Vision",
-        about_vision_text: "Codeurs Pro est une équipe dynamique de 4 professionnels passionnés par la digitalisation. Nous croyons en la puissance de la technologie pour transformer les entreprises et améliorer la vie des gens au Burkina Faso et au-delà.",
+        about_vision_text: "Codeurs Pro est une équipe dynamique de 5 professionnels passionnés par la digitalisation. Nous croyons en la puissance de la technologie pour transformer les entreprises et améliorer la vie des gens au Burkina Faso et au-delà.",
         about_mission_title: "Notre Mission",
         about_mission_text: "Accompagner les entreprises dans leur transformation digitale en offrant des solutions innovantes, performantes et adaptées à leurs besoins spécifiques. Nous mettons notre expertise au service de votre réussite.",
         about_clean_code: "Code Propre",
@@ -40,10 +40,12 @@ const translations = {
         team_description: "Rencontrez les talents derrière Codeurs Pro",
         team_cofounder: "Co-Fondateur & Développeur",
         team_cofounder_f: "Co-Fondatrice & Développeuse",
+        team_lead_dev: "Lead Développeur",
         team_moussa_desc: "Expert en développement web et applications",
         team_ben_desc: "Spécialiste en solutions digitales",
         team_marc_desc: "Expert en architecture logicielle",
         team_sarifatou_desc: "Spécialiste en développement web et Design",
+        team_balkissa_desc: "Experte en développement d'applications innovantes",
 
         // Services Section
         services_subtitle: "Ce Que Nous Faisons",
@@ -152,7 +154,7 @@ const translations = {
         about_title_highlight: "Codeurs Pro",
         about_description: "A consolidated team with a common vision",
         about_vision_title: "Our Vision",
-        about_vision_text: "Codeurs Pro is a dynamic team of 4 professionals passionate about digitalization. We believe in the power of technology to transform businesses and improve people's lives in Burkina Faso and beyond.",
+        about_vision_text: "Codeurs Pro is a dynamic team of 5 professionals passionate about digitalization. We believe in the power of technology to transform businesses and improve people's lives in Burkina Faso and beyond.",
         about_mission_title: "Our Mission",
         about_mission_text: "Supporting businesses in their digital transformation by offering innovative, high-performance solutions tailored to their specific needs. We put our expertise at the service of your success.",
         about_clean_code: "Clean Code",
@@ -166,10 +168,12 @@ const translations = {
         team_description: "Meet the talents behind Codeurs Pro",
         team_cofounder: "Co-Founder & Developer",
         team_cofounder_f: "Co-Founder & Developer",
+        team_lead_dev: "Lead Developer",
         team_moussa_desc: "Expert in web development and applications",
         team_ben_desc: "Digital solutions specialist",
         team_marc_desc: "Software architecture expert",
         team_sarifatou_desc: "Specialist in web development and Design",
+        team_balkissa_desc: "Expert in developing innovative applications",
 
         // Services Section
         services_subtitle: "What We Do",
@@ -280,7 +284,7 @@ function updateContent() {
 
     // Mettre à jour les placeholders des formulaires
     updateFormPlaceholders();
-    
+
     // Mettre à jour Typed.js
     updateTypedText();
 }
@@ -300,27 +304,27 @@ function updateFormPlaceholders() {
 
 // Fonction pour mettre à jour le texte Typed.js
 function updateTypedText() {
-    const typedStrings = currentLanguage === 'fr' 
+    const typedStrings = currentLanguage === 'fr'
         ? [
             'Code\'s Our Professional',
             'Développement Web Moderne',
             'Applications Mobiles Performantes',
             'Solutions Digitales Innovantes',
             'Votre Partenaire Digital au Burkina Faso'
-          ]
+        ]
         : [
             'Code\'s Our Professional',
             'Modern Web Development',
             'High-Performance Mobile Apps',
             'Innovative Digital Solutions',
             'Your Digital Partner in Burkina Faso'
-          ];
+        ];
 
     // Recréer l'instance Typed avec les nouvelles chaînes
     if (window.typedInstance) {
         window.typedInstance.destroy();
     }
-    
+
     window.typedInstance = new Typed('#typed-text', {
         strings: typedStrings,
         typeSpeed: 50,
@@ -341,7 +345,7 @@ function updateLanguageButton() {
 }
 
 // Initialisation au chargement
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Récupérer la langue sauvegardée
     const savedLang = localStorage.getItem('codeurs-pro-lang');
     if (savedLang) {
@@ -355,7 +359,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ajouter l'événement au bouton de langue
     const languageBtn = document.getElementById('languageBtn');
     if (languageBtn) {
-        languageBtn.addEventListener('click', function() {
+        languageBtn.addEventListener('click', function () {
             const newLang = currentLanguage === 'fr' ? 'en' : 'fr';
             changeLanguage(newLang);
         });
